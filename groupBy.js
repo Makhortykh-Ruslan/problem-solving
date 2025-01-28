@@ -7,18 +7,19 @@ const data = [
 ];
 
 function groupBy(arr, callBack) {
-    const obj = {}
 
     if (typeof callBack !== "function") {
         throw new Error('Argument is not function');
     }
 
-    arr.forEach((el) => obj[callBack(el)] ?  obj[callBack(el)] = [... obj[callBack(el)], el] : obj[callBack(el)] = [el])
+    return arr.reduce((card, el) => {
+        card[callBack(el)] ?  card[callBack(el)] = [... card[callBack(el)], el] : card[callBack(el)] = [el];
 
-    return obj;
+        return card;
+    }, {})
 
 }
 
 const result = groupBy(data, (item) => item.category);
 
-console.log(result);
+console.log('result', result)
