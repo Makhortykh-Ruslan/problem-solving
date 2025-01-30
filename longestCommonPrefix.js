@@ -14,7 +14,22 @@ function longestCommonPrefix(words) {
     return result;
 }
 
+function longestCommonPrefixSort(words) {
+    const sortedData = words.sort();
+    const firstWord = sortedData[0];
+    const lastWord = sortedData[sortedData.length - 1];
+
+    let i = 0;
+
+    while (i < firstWord.length && firstWord[i] === lastWord[i]) {
+        i++
+    }
+
+    return firstWord.substring(0, i);
+}
+
 const first = ["flower","flow","flight"];
 const second = ["dog","racecar","car"];
 
-console.log(longestCommonPrefix(second))
+
+console.log('result', longestCommonPrefixSort(second))
