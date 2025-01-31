@@ -1,18 +1,17 @@
 function isValidParentheses(value) {
     const stack = [];
-    const open = ['(', '{', '['];
-
-    const dictionary = {
-        ')': '(',
-        '}': '{',
-        ']': '[',
-    }
+    const hashSymbols = new Set(['(', '{', '[']);
+    const dictionary = new Map([
+        [')', '('],
+        ['}', '{'],
+        [']', '[']
+    ])
 
     for(let el of value) {
-        if (open.includes(el)) {
+        if (hashSymbols.has(el)) {
             stack.push(el);
         } else {
-            const revers = dictionary[el];
+            const revers = dictionary.get(el);
 
             if (stack.pop() !== revers) {
                 return false
@@ -23,4 +22,4 @@ function isValidParentheses(value) {
     return stack.length === 0;
 }
 
-console.log(isValidParentheses('(('))
+console.log(isValidParentheses('[()]'))
