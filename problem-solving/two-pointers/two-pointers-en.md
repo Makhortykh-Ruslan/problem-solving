@@ -5,12 +5,14 @@
 **Two Pointers** is a fundamental algorithmic pattern used when you need to iterate through an array or string from **both ends** or using **two pointers simultaneously**.
 
 This approach is especially effective in **sorted arrays**, or when you need to:
+
 - find a pair of elements
 - check symmetry
 - operate on indexes
 - perform in-place modifications
 
 There are a few typical scenarios:
+
 - **From both ends**: `left` starts at the beginning, `right` at the end → they move towards each other
 - **In one direction**: two pointers move with different speeds or delays
 

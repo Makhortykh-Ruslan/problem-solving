@@ -28,19 +28,18 @@
  */
 
 const data = [
-    { id: 1, name: 'Alice', age: 25 },
-    { id: 2, name: 'Bob', age: 30 },
-    { id: 3, name: 'Charlie', age: 35 },
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 },
 ];
 
 function transformArrayToObject(data) {
-    return data.reduce((result, el) => {
-        result[el.id] = el;
-        return result;
-    }, {})
+  return data.reduce((result, el) => {
+    result[el.id] = el;
+    return result;
+  }, {});
 }
-
 
 const result = transformArrayToObject(data);
 
-console.log('result', result)
+console.log('result', result);

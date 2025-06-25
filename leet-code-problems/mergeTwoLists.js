@@ -10,98 +10,93 @@
  * }
  */
 
-function mergeTwoLists(list1, list2) {
-
-};
+function mergeTwoLists(list1, list2) {}
 
 class NodeList {
-    constructor(value, next = null) {
-        this.value = value;
-        this.next = next;
-    }
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
 }
 
 class LinkedList {
+  constructor() {
+    this.head = null;
+  }
 
-    constructor() {
-        this.head = null;
+  append(value) {
+    const nodeValue = new NodeList(value);
+
+    if (!this.head) {
+      this.head = nodeValue;
+      return;
     }
 
-    append(value) {
-        const nodeValue = new NodeList(value);
+    let current = this.head;
 
-        if (!this.head) {
-            this.head = nodeValue;
-            return;
-        }
-
-        let current = this.head;
-
-        while (current.next) {
-            current = current.next
-        }
-
-        current.next = nodeValue;
+    while (current.next) {
+      current = current.next;
     }
 
-    print() {
-        let current = this.head;
-        let result = [];
-        while (current) {
-            result.push(current.value);
-            current = current.next;
-        }
+    current.next = nodeValue;
+  }
 
-        return result;
+  print() {
+    let current = this.head;
+    let result = [];
+    while (current) {
+      result.push(current.value);
+      current = current.next;
     }
 
-    getAt(index) {
-        let current = this.head;
-        let count = 0;
+    return result;
+  }
 
-        while (current) {
-            if (count === index) return current.value;
-            current = current.next;
-            count++;
-        }
+  getAt(index) {
+    let current = this.head;
+    let count = 0;
 
-        return null;
+    while (current) {
+      if (count === index) return current.value;
+      current = current.next;
+      count++;
     }
 
-    deleteAt(index) {
-        if (!this.head) return;
+    return null;
+  }
 
-        if (index === 0) {
-            this.head = this.head.next;
-            return;
-        }
+  deleteAt(index) {
+    if (!this.head) return;
 
-        let current = this.head;
-        let count = 0;
-
-        while (current.next) {
-            if (count === index - 1) {
-                current.next = current.next.next;
-                return;
-            }
-            current = current.next;
-            count++;
-        }
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
     }
 
-    deleteDuplicates() {
-        let current = this.head;
+    let current = this.head;
+    let count = 0;
 
-        while (current && current.next) {
-            if (current.value === current.next.value) {
-                current.next = current.next.next;
-            } else {
-                current = current.next;
-            }
-        }
+    while (current.next) {
+      if (count === index - 1) {
+        current.next = current.next.next;
+        return;
+      }
+      current = current.next;
+      count++;
     }
+  }
 
+  deleteDuplicates() {
+    let current = this.head;
 
+    while (current && current.next) {
+      if (current.value === current.next.value) {
+        current.next = current.next.next;
+      } else {
+        current = current.next;
+      }
+    }
+  }
 }
 
 const nodeList1 = new LinkedList();
@@ -123,16 +118,14 @@ let dummy = new NodeList(-1);
 let tail = dummy;
 
 while (current && current2) {
-    if (current.value < current2.value) {
-        tail.next = current;
-        current = current.next;
-    } else {
-        tail.next = current2;
-        current2 = current2.next;
-    }
-    tail = tail.next;
+  if (current.value < current2.value) {
+    tail.next = current;
+    current = current.next;
+  } else {
+    tail.next = current2;
+    current2 = current2.next;
+  }
+  tail = tail.next;
 }
 
-console.log(dummy)
-
-
+console.log(dummy);

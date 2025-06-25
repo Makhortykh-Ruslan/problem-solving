@@ -13,6 +13,7 @@ This repository is my personal prep for technical interviews, focused on solving
 Each section in this repo represents one core pattern.
 
 Inside each folder:
+
 - Pattern explanation + basic example
 - 3–5 LeetCode problems
 - My solutions with comments

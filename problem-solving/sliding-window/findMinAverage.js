@@ -1,22 +1,22 @@
 const findMinSum = (nums, k) => {
-    let current_sum = 0;
-    let left = 0;
-    let min_sum = Infinity;
+  let current_sum = 0;
+  let left = 0;
+  let min_sum = Infinity;
 
-    for(let right = 0; right < nums.length; right++) {
-        current_sum += nums[right];
+  for (let right = 0; right < nums.length; right++) {
+    current_sum += nums[right];
 
-        const windowSize = right - left + 1;
+    const windowSize = right - left + 1;
 
-        if (windowSize === k) {
-            min_sum = Math.min(min_sum, current_sum);
-            current_sum -= nums[left];
-            left++;
-        }
+    if (windowSize === k) {
+      min_sum = Math.min(min_sum, current_sum);
+      current_sum -= nums[left];
+      left++;
     }
+  }
 
-    return min_sum;
-}
+  return min_sum;
+};
 
 const result = findMinSum([4, 2, 1, 7, 8, 1, 2, 8, 1, 0], 3);
 console.log('result', result); // ✅ має бути 4

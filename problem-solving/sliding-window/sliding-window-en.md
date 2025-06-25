@@ -36,3 +36,4 @@ for (let right = 0; right < arr.length; right++) {
 
   // At this point: valid window → update result if needed
 }
+```
