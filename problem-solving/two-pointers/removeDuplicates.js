@@ -1,16 +1,17 @@
 function removeDuplicates(nums) {
-  let left = 0;
-  let right = 1;
+  let left = 0; // Вказівник для "унікальної частини"
+  let right = 1; // Вказівник для сканування
 
   while (right < nums.length) {
     if (nums[left] !== nums[right]) {
-      left++;
-      nums[left] = nums[right];
+      // Знайшли новий унікальний елемент
+      left++; // Готуємо місце для нього
+      nums[left] = nums[right]; // Записуємо його
     }
-    right++;
+    right++; // Продовжуємо сканування
   }
 
-  return left + 1;
+  return left + 1; // Довжина унікальної частини
 }
 
 console.log(removeDuplicates([1, 1, 2]));
