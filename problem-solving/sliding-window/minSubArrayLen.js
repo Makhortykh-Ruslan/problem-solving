@@ -1,4 +1,5 @@
 export const minSubArrayLen = (target, nums) => {
+
     let left = 0;
     let minLength = Infinity;
     let currentSumWindow = 0;
