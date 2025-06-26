@@ -1,3 +1,12 @@
+/** 🧩 Sliding Window — задача 4: Longest Substring Without Repeating Characters
+ 📌 Умова:
+ Дано рядок str. Знайти найдовший підрядок без повторюваних символів.
+
+ lengthOfLongestSubstring('abcabcbb') // → 3  → 'abc'
+
+
+ **/
+
 const lengthOfLongestSubstring = (str) => {
   const uniqueChart = new Set(); // Зберігаємо унікальні символи у поточному "вікні"
   let maxValue = 0; // Максимальна довжина валідного підрядка

@@ -1,3 +1,12 @@
+/** 🧩 Sliding Window — задача 6: Maximum Average Subarray of Size K
+ 📌 Умова:
+ Дано масив nums і ціле k. Знайти найбільше середнє арифметичне підмасиву довжини k.
+
+ findMaxAverage([1,12,-5,-6,50,3], 4) // → 12.75 → [12, -5, -6, 50]
+
+
+ **/
+
 const findMaxAverage = (nums, k) => {
   let current_sum = 0;
   let max_sum = -Infinity;

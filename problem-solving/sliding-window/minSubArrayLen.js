@@ -1,3 +1,12 @@
+/** 🧩 Sliding Window — задача 1: Minimum Size Subarray Sum
+ 📌 Умова:
+ Дано масив nums і ціле target. Знайти найменший підмасив, сума якого ≥ target. Повернути його довжину. Якщо такого немає — 0.
+
+ minSubArrayLen(7, [2,3,1,2,4,3]) // → 2  → [4,3]
+
+ 
+ **/
+
 export const minSubArrayLen = (target, nums) => {
   let left = 0;
   let minLength = Infinity;
