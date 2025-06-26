@@ -55,3 +55,5 @@ console.log(isPalindrome('race a car'));
  Output: false
 
  **/
+
+module.exports = { isPalindrome };
