@@ -1,3 +1,17 @@
+/**  🧩 Two Pointers — задача 4: Valid Palindrome (з фільтром символів)
+ 📌 Умова:
+ Перевірити, чи є рядок паліндромом, ігноруючи:
+
+ пробіли
+
+ розділові знаки
+
+ isPalindrome("A man, a plan, a canal: Panama") → true
+ isPalindrome("race a car") → false
+
+
+ **/
+
 function isPalindrome(s) {
   let left = 0;
   let right = s.length - 1;
