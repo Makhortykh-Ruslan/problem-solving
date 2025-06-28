@@ -14,16 +14,21 @@ node4.next = node5;
 node5.next = node3; // create cycle
 
 function hashCycleTwo(head) {
+  const nodeHash = new Map();
   let fast = head;
   let slow = head;
+
+  nodeHash.set(head, true);
 
   while (fast && fast.next) {
     slow = slow.next;
     fast = fast.next.next;
 
-    if (slow === fast) {
-      return fast.next.next;
+    if (nodeHash.has(slow)) {
+      return slow;
     }
+
+    nodeHash.set(slow, true);
   }
 
   return null;
