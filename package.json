@@ -7,7 +7,6 @@
     "format": "prettier --write .",
     "test": "jest"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
