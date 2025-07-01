@@ -4,4 +4,4 @@ function containsDuplicate(arr) {
   return hash.size !== arr.length;
 }
 
-console.log('containsDublicate', containsDuplicate([1, 2, 3, 4]));
+module.exports = { containsDuplicate };
