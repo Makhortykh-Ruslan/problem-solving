@@ -16,4 +16,4 @@ function firstUniqChar(s) {
   return -1;
 }
 
-console.log("firstUniqChar('leetcode')", firstUniqChar('leetcode'));
+module.exports = { firstUniqChar };
