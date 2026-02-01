@@ -1,7 +1,10 @@
 export default {
   singleQuote: true,
-  trailingComma: 'es5',
-  printWidth: 80,
+  trailingComma: 'all',
   tabWidth: 2,
+  useTabs: false,
   semi: true,
+  bracketSpacing: true,
+  arrowParens: 'always',
+  endOfLine: 'auto',
 };

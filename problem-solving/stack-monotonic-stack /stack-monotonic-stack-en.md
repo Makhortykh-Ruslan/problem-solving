@@ -14,11 +14,11 @@ Its power lies in solving "next greater/smaller element" problems in **O(n)** ti
 
 - You need to **store state/history** and process the last added item
 - You're solving problems like:
-    - Validating parentheses
-    - Reverse Polish Notation
-    - Next Greater/Smaller Element
-    - Trapping Rain Water
-    - Largest Rectangle in Histogram
+  - Validating parentheses
+  - Reverse Polish Notation
+  - Next Greater/Smaller Element
+  - Trapping Rain Water
+  - Largest Rectangle in Histogram
 
 ---
 
@@ -33,3 +33,4 @@ for (let i = 0; i < arr.length; i++) {
   // logic using stack[stack.length - 1]
   // for comparison, removal, etc.
 }
+```

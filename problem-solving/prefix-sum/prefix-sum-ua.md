@@ -29,13 +29,12 @@ const prefix = new Array(nums.length + 1).fill(0);
 for (let i = 0; i < nums.length; i++) {
   prefix[i + 1] = prefix[i] + nums[i];
 }
-
 ```
+
 Отримання суми підмасиву i → j:
 
 ```ts
 const rangeSum = prefix[j + 1] - prefix[i];
-
 ```
 
 Порівняння суми лівої і правої частин:
@@ -45,13 +44,12 @@ const totalSum = nums.reduce((acc, n) => acc + n, 0);
 let leftSum = 0;
 
 for (let i = 0; i < nums.length; i++) {
-    const rightSum = totalSum - leftSum - nums[i];
+  const rightSum = totalSum - leftSum - nums[i];
 
-    if (leftSum === rightSum) return i;
-    leftSum += nums[i];
+  if (leftSum === rightSum) return i;
+  leftSum += nums[i];
 }
 return -1;
-
 ```
 
 Приклади задач
@@ -64,4 +62,3 @@ Subarray Sum Equals K — знайти кількість підмасивів �
 Range Sum Query – Immutable — швидкі запити підсумків
 
 Maximum Size Subarray Sum Equals k — найбільший підмасив з певною сумою
-

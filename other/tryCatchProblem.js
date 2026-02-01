@@ -28,36 +28,41 @@
 // }
 
 process.on('uncaughtException', (err) => {
-    console.log('NodeJS перехопив критичний throw:', err.message);
+  console.log('NodeJS перехопив критичний throw:', err.message);
 });
 
 async function getErrorCorrectly() {
-    await new Promise(res => setTimeout(res, 2000)); 
-    throw new Error('getError');
+  await new Promise((res) => setTimeout(res, 2000));
+  throw new Error('getError');
 }
 
 function getDataProducts() {
-    return new Promise((resolve, reject) => setTimeout(() => resolve('getDataProducts'), 1000))
+  return new Promise((resolve, reject) =>
+    setTimeout(() => resolve('getDataProducts'), 1000)
+  );
 }
 
 function getDataCards() {
-    return new Promise((resolve) => setTimeout(() => resolve('getDataCards'), 1000))
+  return new Promise((resolve) =>
+    setTimeout(() => resolve('getDataCards'), 1000)
+  );
 }
 
 function getDataMembers() {
-    return new Promise((resolve) => setTimeout(() => resolve('getDataMembers'), 1000))
+  return new Promise((resolve) =>
+    setTimeout(() => resolve('getDataMembers'), 1000)
+  );
 }
 
 try {
-    const initData = await Promise.all([
-        getDataProducts(),
-        getDataCards(),
-        getDataMembers(),
-        getErrorCorrectly()
-    ])
+  const initData = await Promise.all([
+    getDataProducts(),
+    getDataCards(),
+    getDataMembers(),
+    getErrorCorrectly(),
+  ]);
 
-    console.log(initData)
+  console.log(initData);
 } catch (error) {
-    console.log('Error:', error)
+  console.log('Error:', error);
 }
-

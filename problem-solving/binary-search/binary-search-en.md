@@ -38,3 +38,4 @@ while (left <= right) {
     right = mid - 1;
   }
 }
+```

@@ -14,4 +14,4 @@ function hasCycle(head) {
   return false;
 }
 
-module.exports = { hasCycle }
+module.exports = { hasCycle };
