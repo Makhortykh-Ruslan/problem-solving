@@ -5,9 +5,7 @@ describe('Binary Search Example', () => {
     expect(binarySearchExample([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7)).toEqual(6);
   });
   test('Should return -1', () => {
-    expect(binarySearchExample([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 16)).toEqual(
-      -1
-    );
+    expect(binarySearchExample([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 16)).toEqual(-1);
   });
   test('Should return 0', () => {
     expect(binarySearchExample([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1)).toEqual(0);

@@ -13,10 +13,7 @@ function validPalindromeTwo(str) {
 
   while (left < right) {
     if (str[left] !== str[right]) {
-      if (
-        checkIfPalindrome(str, left + 1, right) ||
-        checkIfPalindrome(str, left, right - 1)
-      ) {
+      if (checkIfPalindrome(str, left + 1, right) || checkIfPalindrome(str, left, right - 1)) {
         return true;
       }
 

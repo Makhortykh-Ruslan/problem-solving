@@ -7,7 +7,7 @@ function isValidParentheses(value) {
     [']', '['],
   ]);
 
-  for (let el of value) {
+  for (const el of value) {
     if (hashSymbols.has(el)) {
       stack.push(el);
     } else {

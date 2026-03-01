@@ -7,7 +7,7 @@ function isValid(value) {
     [']', '['],
   ]);
 
-  for (let el of value) {
+  for (const el of value) {
     if (openBrackets.has(el)) {
       stack.push(el);
     } else {

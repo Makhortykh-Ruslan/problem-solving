@@ -6,5 +6,8 @@ export default {
   semi: true,
   bracketSpacing: true,
   arrowParens: 'always',
-  endOfLine: 'auto',
+  endOfLine: 'lf',
+  printWidth: 100,
+  bracketSameLine: false,
+  singleAttributePerLine: true,
 };

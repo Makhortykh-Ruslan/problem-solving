@@ -2,7 +2,7 @@ function checkValidString(s) {
   let minOpen = 0;
   let maxOpen = 0;
 
-  for (let char of s) {
+  for (const char of s) {
     if (char === '(') {
       minOpen++;
       maxOpen++;

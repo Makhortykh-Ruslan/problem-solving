@@ -43,7 +43,7 @@ class LinkedList {
 
   print() {
     let current = this.head;
-    let result = [];
+    const result = [];
     while (current) {
       result.push(current.value);
       current = current.next;
@@ -114,7 +114,7 @@ nodeList2.append(4);
 let current = nodeList1.head;
 let current2 = nodeList2.head;
 
-let dummy = new NodeList(-1);
+const dummy = new NodeList(-1);
 let tail = dummy;
 
 while (current && current2) {

@@ -9,9 +9,7 @@ function sortMethod(str) {
 function anagramFunc(data) {
   const hashMap = data.reduce((card, el) => {
     const sorted = sortMethod(el);
-    card[sorted]
-      ? (card[sorted] = [...card[sorted], el])
-      : (card[sorted] = [el]);
+    card[sorted] ? (card[sorted] = [...card[sorted], el]) : (card[sorted] = [el]);
 
     return card;
   }, {});
@@ -39,11 +37,11 @@ const isAnagramTwo = (s, t) => {
 
   const count = {};
 
-  for (let char of s) {
+  for (const char of s) {
     count[char] = (count[char] || 0) + 1;
   }
 
-  for (let char of t) {
+  for (const char of t) {
     if (!count[char]) return false;
     count[char]--;
   }
@@ -57,7 +55,7 @@ const isAnagramTwo = (s, t) => {
 const getFreqSignature = (word) => {
   const freq = Array(26).fill(0);
 
-  for (let char of word) {
+  for (const char of word) {
     const index = char.charCodeAt(0) - 'a'.charCodeAt(0);
     freq[index]++;
   }
@@ -101,7 +99,4 @@ const text = (data) => {
     .filter(Boolean);
 };
 
-console.log(
-  'text',
-  text(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'])
-);
+console.log('text', text(['apple', 'banana', 'apple', 'orange', 'banana', 'apple']));

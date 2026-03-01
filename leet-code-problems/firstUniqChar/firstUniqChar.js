@@ -1,5 +1,5 @@
 function firstUniqChar(s) {
-  let hashMap = new Map();
+  const hashMap = new Map();
 
   for (let i = 0; i < s.length; i++) {
     const char = s[i];

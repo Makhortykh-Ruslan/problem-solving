@@ -1,9 +1,10 @@
 {
   "name": "problem-solving",
   "version": "1.0.0",
+  "type": "module",
   "main": "",
   "scripts": {
-    "lint": "eslint . --ext .js",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "test": "jest"
   },

@@ -13,10 +13,7 @@ function romanToInt(s) {
 
   return transformedToArray.reduce((acc, el, idx) => {
     const next = transformedToArray[idx + 1];
-    acc =
-      dictionary[el] < dictionary[next]
-        ? (acc -= dictionary[el])
-        : (acc += dictionary[el]);
+    acc = dictionary[el] < dictionary[next] ? (acc -= dictionary[el]) : (acc += dictionary[el]);
 
     return acc;
   }, 0);

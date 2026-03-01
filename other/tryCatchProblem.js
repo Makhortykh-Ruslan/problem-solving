@@ -37,21 +37,15 @@ async function getErrorCorrectly() {
 }
 
 function getDataProducts() {
-  return new Promise((resolve, reject) =>
-    setTimeout(() => resolve('getDataProducts'), 1000)
-  );
+  return new Promise((resolve, reject) => setTimeout(() => resolve('getDataProducts'), 1000));
 }
 
 function getDataCards() {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve('getDataCards'), 1000)
-  );
+  return new Promise((resolve) => setTimeout(() => resolve('getDataCards'), 1000));
 }
 
 function getDataMembers() {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve('getDataMembers'), 1000)
-  );
+  return new Promise((resolve) => setTimeout(() => resolve('getDataMembers'), 1000));
 }
 
 try {

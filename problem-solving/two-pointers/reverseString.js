@@ -24,24 +24,16 @@ function reverseString(s) {
   return s;
 }
 
-console.log(
-  'Output ["o","l","l","e","h"]',
-  reverseString(['h', 'e', 'l', 'l', 'o'])
-);
+console.log('Output ["o","l","l","e","h"]', reverseString(['h', 'e', 'l', 'l', 'o']));
 /**
  Input: s = ["h","e","l","l","o"]
  Output: ["o","l","l","e","h"]
 
  **/
 
-console.log(
-  'Output ["h","a","n","n","a","H"]',
-  reverseString(['H', 'a', 'n', 'n', 'a', 'h'])
-);
+console.log('Output ["h","a","n","n","a","H"]', reverseString(['H', 'a', 'n', 'n', 'a', 'h']));
 /**
  Input: s = ['H', 'a', 'n', 'n', 'a', 'h']
  Output: ["h","a","n","n","a","H"]
 
  **/
-
-csdcsd;
