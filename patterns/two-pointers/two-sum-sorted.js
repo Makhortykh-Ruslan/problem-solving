@@ -20,9 +20,7 @@
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function (numbers, target) {
-  // Your solution here
-};
+const twoSum = function (numbers, target) {};
 
 // Test cases
 console.log(twoSum([2, 7, 11, 15], 9)); // Expected output: [1, 2]
