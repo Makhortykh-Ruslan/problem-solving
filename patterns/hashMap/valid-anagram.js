@@ -27,9 +27,15 @@ const isAnagram = function (s, t) {
 
   if (s.length !== t.length) return false;
 
-  for (let i = 0; i < s.length; i++) {}
+  for (let i = 0; i < s.length; i++) {
+    const left = s[i];
+    const right = t[i];
 
-  console.log('hasMap', hasMap.values());
+    hasMap.set(left, (hasMap.get(left) || 0) + 1);
+    hasMap.set(right, (hasMap.get(right) || 0) - 1);
+  }
+
+  return [...hasMap.values()].filter(Boolean).length === 0;
 };
 
 // Test cases
