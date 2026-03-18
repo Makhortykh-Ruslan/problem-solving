@@ -21,7 +21,27 @@
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfit = function (prices) {};
+
+const maxProfit = function (prices) {
+  let lowSubBuy = 0;
+
+  let left = 0;
+  let right = 1;
+
+  while (right < prices.length) {
+    const profit = prices[right] - prices[left];
+
+    if (prices[right] < prices[left]) {
+      left = right;
+      right++;
+    } else {
+      lowSubBuy = Math.max(lowSubBuy, profit);
+      right++;
+    }
+  }
+
+  return lowSubBuy;
+};
 
 // Test cases
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Expected: 5
