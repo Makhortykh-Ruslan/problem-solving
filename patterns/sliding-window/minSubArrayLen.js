@@ -24,9 +24,27 @@
  * @param {number[]} nums
  * @return {number}
  */
-const minSubArrayLen = function (target, nums) {};
+const minSubArrayLen = function (target, nums) {
+  let minLength = 0;
+  let left = 0;
+  let sum = 0;
+
+  for (let right = 0; right < nums.length; right++) {
+    sum += nums[right];
+
+    while (sum >= target) {
+      const length = right - left + 1;
+      minLength = minLength === 0 ? length : Math.min(minLength, length);
+      sum -= nums[left];
+      left++;
+    }
+  }
+
+  return minLength;
+};
 
 // Test cases
+console.log(minSubArrayLen(6, [10, 2, 3])); // Expected: 1
 console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3])); // Expected: 2
 console.log(minSubArrayLen(4, [1, 4, 2, 3])); // Expected: 1
 console.log(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1])); // Expected: 0
