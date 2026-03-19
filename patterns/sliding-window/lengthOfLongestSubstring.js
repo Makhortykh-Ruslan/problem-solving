@@ -22,9 +22,30 @@
  * @param {string} s
  * @return {number}
  */
-const lengthOfLongestSubstring = function (s) {};
+const lengthOfLongestSubstring = function (s) {
+  const hashMap = new Set();
+
+  let length = 0;
+
+  let left = 0;
+  let right = 0;
+
+  while (right < s.length) {
+    if (hashMap.has(s[right])) {
+      hashMap.delete(s[left]);
+      left++;
+    } else {
+      hashMap.add(s[right]);
+      right++;
+      length = Math.max(length, hashMap.size);
+    }
+  }
+
+  return length;
+};
 
 // Test cases
+console.log(lengthOfLongestSubstring('au')); // Expected: 2
 console.log(lengthOfLongestSubstring('abcabcbb')); // Expected: 3
 console.log(lengthOfLongestSubstring('bbbbb')); // Expected: 1
 console.log(lengthOfLongestSubstring('pwwkew')); // Expected: 3
