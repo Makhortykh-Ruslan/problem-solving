@@ -29,7 +29,14 @@
  * @return {number[]}
  */
 const runningSum = function (nums) {
-  // your code here
+  const result = [];
+  let sum = 0;
+
+  for (const num of nums) {
+    sum += num;
+    result.push(sum);
+  }
+  return result;
 };
 
 // Test cases
