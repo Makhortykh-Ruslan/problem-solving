@@ -33,10 +33,27 @@
  * @return {number}
  */
 const pivotIndex = function (nums) {
-  // your code here
+  const totalSum = nums.reduce((a, b) => a + b, 0);
+
+  let leftSum = 0;
+  let index = -1;
+
+  for (let i = 0; i < nums.length; i++) {
+    const rightSum = totalSum - leftSum - nums[i];
+
+    if (rightSum === leftSum) {
+      index = i;
+      break;
+    }
+
+    leftSum += nums[i];
+  }
+
+  return index;
 };
 
 // Test cases
+console.log(pivotIndex([0, 0])); // Expected: 0
 console.log(pivotIndex([1, 7, 3, 6, 5, 6])); // Expected: 3
 console.log(pivotIndex([1, 2, 3])); // Expected: -1
 console.log(pivotIndex([2, 1, -1])); // Expected: 0
