@@ -27,12 +27,17 @@
  */
 
 class NumArray {
+  prefixSum = [0];
+  sum = 0;
   constructor(nums) {
-    // your code here
+    for (const el of nums) {
+      this.sum += el;
+      this.prefixSum.push(this.sum);
+    }
   }
 
   sumRange(left, right) {
-    // your code here
+    return this.prefixSum[right + 1] - this.prefixSum[left];
   }
 }
 
