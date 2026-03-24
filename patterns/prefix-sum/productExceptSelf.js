@@ -29,20 +29,23 @@
 const productExceptSelf = function (nums) {
   const result = [];
 
-  for (let i = 0; i < nums.length; i++) {
-    let left = 0;
+  let left = 0;
 
-    let sum = 1;
+  let multi = 1;
 
-    while (left < nums.length) {
-      if (left !== i) {
-        sum *= nums[left];
-      }
+  while (left < nums.length) {
+    result.push(multi);
+    multi *= nums[left];
+    left++;
+  }
 
-      left++;
-    }
+  let rightMulti = 1;
+  let i = nums.length - 1;
 
-    result[i] = sum || 0;
+  while (i >= 0) {
+    result[i] = result[i] * rightMulti || 0;
+    rightMulti *= nums[i];
+    i--;
   }
 
   return result;
