@@ -1,5 +1,5 @@
 /**
- * Problem: Count Vowel Substrings of a String
+ * Problem: Count Vowel Substrings of a Stringв
  * Pattern: Prefix Sum / HashMap
  * Difficulty: Easy
  * Link: https://leetcode.com/problems/count-vowel-substrings-of-a-string/
@@ -29,7 +29,31 @@
  * @return {number}
  */
 const countVowelSubstrings = function (word) {
-  // your code here
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+
+  let count = 0;
+
+  for (let i = 0; i < word.length; i++) {
+    const searchedVowels = new Set();
+
+    searchedVowels.clear();
+
+    for (let j = i; j < word.length; j++) {
+      const letter = word[j];
+
+      if (vowels.has(letter)) {
+        searchedVowels.add(letter);
+
+        if (searchedVowels.size === 5) {
+          count++;
+        }
+      } else {
+        break;
+      }
+    }
+  }
+
+  return count;
 };
 
 // Test cases
