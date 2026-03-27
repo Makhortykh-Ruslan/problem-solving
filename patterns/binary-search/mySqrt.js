@@ -25,7 +25,29 @@
  * @return {number}
  */
 const mySqrt = function (x) {
-  // your code here
+  let left = 0;
+  let right = x;
+
+  let result = 0;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    const compare = mid * mid;
+
+    if (compare === x) {
+      result = mid;
+
+      break;
+    } else if (compare < x) {
+      result = mid;
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return result;
 };
 
 // Test cases
