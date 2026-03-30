@@ -31,10 +31,31 @@
  * @return {boolean}
  */
 const isHappy = function (n) {
-  // your code here
+  const hashMap = new Set();
+  let transformToString = String(n);
+
+  while (true) {
+    let calculate = 0;
+
+    for (let i = 0; i < transformToString.length; i++) {
+      calculate = calculate + transformToString[i] * transformToString[i];
+    }
+
+    if (calculate === 1) {
+      return true;
+    }
+
+    if (hashMap.has(calculate)) {
+      return false;
+    }
+
+    transformToString = String(calculate);
+    hashMap.add(calculate);
+  }
 };
 
 // Test cases
+console.log(isHappy(59)); // Expected: false
 console.log(isHappy(19)); // Expected: true
 console.log(isHappy(2)); // Expected: false
 console.log(isHappy(1)); // Expected: true
