@@ -32,7 +32,15 @@ class ListNode {
  * @return {ListNode}
  */
 const middleNode = function (head) {
-  // your code here
+  let fast = head;
+  let slow = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
 };
 
 // Test setup
@@ -55,5 +63,6 @@ const getValues = (node) => {
   return result;
 };
 
+console.log(getValues(middleNode(buildList([1])))); // Expected: [1]
 console.log(getValues(middleNode(buildList([1, 2, 3, 4, 5])))); // Expected: [3,4,5]
 console.log(getValues(middleNode(buildList([1, 2, 3, 4, 5, 6])))); // Expected: [4,5,6]
