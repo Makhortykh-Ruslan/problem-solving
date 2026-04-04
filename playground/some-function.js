@@ -1,4 +1,4 @@
-const obj = require('./custom-math-pow');
+const obj = require('./custom-math-pow.js');
 
 function someFunction(x) {
   obj.customMathPow(x);

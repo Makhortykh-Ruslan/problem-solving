@@ -1,4 +1,4 @@
-const { formatName } = require('./format-name');
+const { formatName } = require('./format-name.js');
 
 function greetUser(user) {
   const name = formatName(user.firstName, user.lastName);
