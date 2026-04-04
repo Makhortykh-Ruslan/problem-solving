@@ -1,20 +1,23 @@
-# Problem Solving with Algorithmic Patterns
+# Problem Solving
 
-This repository is my personal prep for technical interviews, focused on solving problems **by identifying and applying algorithmic patterns** — not just brute-forcing tasks one by one.
+Personal repo for learning algorithms through pattern recognition.
 
-## 📌 Why Patterns?
+## Structure
 
-🔹 Most LeetCode problems are variations of ~15–20 core patterns  
-🔹 Recognizing patterns makes solving problems faster and more predictable  
-🔹 It’s a systematic and scalable approach that actually works in interviews
+### `patterns/`
 
-## ✅ Structure
+Each folder = one algorithmic pattern. Contains a `.md` with theory and `.js` files with solutions.
 
-Each section in this repo represents one core pattern.
+| Pattern | Problems |
+|---|---|
+| `two-pointers` | valid-palindrome, two-sum-2, threeSum, maxArea |
+| `sliding-window` | lengthOfLongestSubstring, maxProfit, minSubArrayLen |
+| `slow-fast-pointers` | hasCycle, middleOfLinkedList, isHappy |
+| `binary-search` | search, searchInsert, mySqrt, isBadVersion, guessNumber |
+| `prefix-sum` | runningSum, pivotIndex, productExceptSelf, subarraySum, numArray, leftRightDifference, countVowelSubstrings |
+| `hashMap` | two-sum, valid-anagram, group-anagram |
+| `bfs-dfs` | *(theory only so far)* |
 
-Inside each folder:
+### `playground/`
 
-- Pattern explanation + basic example
-- 3–5 LeetCode problems
-- My solutions with comments
-- Links to the original problems
+Miscellaneous JS exercises — string manipulation, array utils, promises, etc.
