@@ -9,9 +9,9 @@
 #### Main Strategies
 
 1. **BFS:** Uses a queue. Ideal for finding the shortest path.
-    - _Example:_ Level order traversal, shortest path in graph
+   - _Example:_ Level order traversal, shortest path in graph
 2. **DFS:** Uses a stack or recursion. Ideal for traversing the entire graph/tree.
-    - _Example:_ Path finding, cycle detection, connected components
+   - _Example:_ Path finding, cycle detection, connected components
 
 #### Use Cases
 

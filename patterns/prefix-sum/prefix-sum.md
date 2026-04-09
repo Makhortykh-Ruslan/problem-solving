@@ -9,7 +9,7 @@ The key insight: instead of recalculating the sum from `i` to `j` every time —
 #### Main Strategies
 
 1. **Prefix Sum Array:** Build a helper array `prefix` where `prefix[i]` = sum of all elements from `0` to `i`.
-    - Sum of subarray from `i` to `j` = `prefix[j] - prefix[i-1]`
+   - Sum of subarray from `i` to `j` = `prefix[j] - prefix[i-1]`
 2. **Prefix Sum + HashMap:** Store prefix sums in a hash table to find subarrays with a target sum in O(1).
 
 #### Use Cases

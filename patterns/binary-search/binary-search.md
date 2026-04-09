@@ -9,11 +9,11 @@ The key insight: if the array is sorted — you can always determine which half 
 #### Main Strategies
 
 1. **Classic Binary Search:** Find exact target in a sorted array.
-    - Compare target with middle element → go left or right
+   - Compare target with middle element → go left or right
 2. **Find Boundary:** Find first/last position where condition is true.
-    - _Example:_ Find first bad version, find insertion position.
+   - _Example:_ Find first bad version, find insertion position.
 3. **Binary Search on Answer:** Search on result space, not array.
-    - _Example:_ Minimize maximum value, find kth smallest.
+   - _Example:_ Minimize maximum value, find kth smallest.
 
 #### Use Cases
 
