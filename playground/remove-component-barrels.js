@@ -19,9 +19,7 @@ const rootArg = args.find((a) => !a.startsWith('--'));
 const isDryRun = args.includes('--dry-run');
 
 if (!rootArg) {
-  console.error(
-    'Usage: node remove-component-barrels.js <project-root> [--dry-run]',
-  );
+  console.error('Usage: node remove-component-barrels.js <project-root> [--dry-run]');
   process.exit(1);
 }
 
@@ -64,14 +62,10 @@ function walk(dir) {
 
 console.log(`\nScanning: ${ROOT}`);
 console.log(
-  isDryRun
-    ? 'Mode: dry-run (nothing will be deleted)\n'
-    : 'Mode: live (files will be deleted)\n',
+  isDryRun ? 'Mode: dry-run (nothing will be deleted)\n' : 'Mode: live (files will be deleted)\n',
 );
 
 walk(ROOT);
 
 const count = isDryRun ? skipped.length : deleted.length;
-console.log(
-  `\nDone. ${count} index.ts file(s) ${isDryRun ? 'would be' : 'were'} removed.`,
-);
+console.log(`\nDone. ${count} index.ts file(s) ${isDryRun ? 'would be' : 'were'} removed.`);
