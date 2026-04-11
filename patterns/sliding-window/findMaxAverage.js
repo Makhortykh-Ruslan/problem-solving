@@ -28,7 +28,14 @@
  * @return {number}
  */
 const findMaxAverage = function (nums, k) {
-  // your solution here
+  let sum = 0;
+  let maxSum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+
+  return maxSum;
 };
 
 // Test cases
