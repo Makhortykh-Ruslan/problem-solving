@@ -3,8 +3,9 @@
 /**
  * remove-component-barrels.js
  *
- * Finds and removes index.ts files that sit in the same folder
- * as a *.component.ts file — which violates the barrel rule.
+ * Finds and removes index.ts files that:
+ *   1. Sit in the same folder as a *.component.ts file
+ *   2. Sit inside a folder named 'components' or 'pages'
  *
  * Usage:
  *   node remove-component-barrels.js ./src
@@ -14,18 +15,33 @@
 const fs = require('fs');
 const path = require('path');
 
+const FORBIDDEN_FOLDERS = new Set(['components', 'pages']);
+
 const args = process.argv.slice(2);
 const rootArg = args.find((a) => !a.startsWith('--'));
 const isDryRun = args.includes('--dry-run');
 
 if (!rootArg) {
-  console.error('Usage: node remove-component-barrels.js <project-root> [--dry-run]');
+  console.error(
+    'Usage: node remove-component-barrels.js <project-root> [--dry-run]',
+  );
   process.exit(1);
 }
 
 const ROOT = path.resolve(rootArg);
 const deleted = [];
 const skipped = [];
+
+function removeBarrel(barrelPath, reason) {
+  if (isDryRun) {
+    skipped.push(barrelPath);
+    console.log(`[dry-run] would delete (${reason}): ${barrelPath}`);
+  } else {
+    fs.unlinkSync(barrelPath);
+    deleted.push(barrelPath);
+    console.log(`deleted (${reason}): ${barrelPath}`);
+  }
+}
 
 function walk(dir) {
   let entries;
@@ -36,21 +52,19 @@ function walk(dir) {
     return;
   }
 
+  const folderName = path.basename(dir);
   const names = entries.map((e) => e.name);
-  const hasComponent = names.some((n) => n.endsWith('.component.ts'));
   const hasBarrel = names.includes('index.ts');
 
+  // rule 1: index.ts sits next to *.component.ts
+  const hasComponent = names.some((n) => n.endsWith('.component.ts'));
   if (hasComponent && hasBarrel) {
-    const barrelPath = path.join(dir, 'index.ts');
+    removeBarrel(path.join(dir, 'index.ts'), 'next to .component.ts');
+  }
 
-    if (isDryRun) {
-      skipped.push(barrelPath);
-      console.log(`[dry-run] would delete: ${barrelPath}`);
-    } else {
-      fs.unlinkSync(barrelPath);
-      deleted.push(barrelPath);
-      console.log(`deleted: ${barrelPath}`);
-    }
+  // rule 2: index.ts sits inside components/ or pages/ folder
+  if (FORBIDDEN_FOLDERS.has(folderName) && hasBarrel) {
+    removeBarrel(path.join(dir, 'index.ts'), `inside ${folderName}/`);
   }
 
   for (const entry of entries) {
@@ -62,10 +76,14 @@ function walk(dir) {
 
 console.log(`\nScanning: ${ROOT}`);
 console.log(
-  isDryRun ? 'Mode: dry-run (nothing will be deleted)\n' : 'Mode: live (files will be deleted)\n',
+  isDryRun
+    ? 'Mode: dry-run (nothing will be deleted)\n'
+    : 'Mode: live (files will be deleted)\n',
 );
 
 walk(ROOT);
 
 const count = isDryRun ? skipped.length : deleted.length;
-console.log(`\nDone. ${count} index.ts file(s) ${isDryRun ? 'would be' : 'were'} removed.`);
+console.log(
+  `\nDone. ${count} index.ts file(s) ${isDryRun ? 'would be' : 'were'} removed.`,
+);
