@@ -28,17 +28,35 @@
  * @return {number}
  */
 const findMaxAverage = function (nums, k) {
-  let sum = 0;
-  let maxSum = 0;
+  let windowSum = 0;
+  let maxAverage = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    sum += nums[i];
+  for (let i = 0; i < k; i++) {
+    windowSum += nums[i];
   }
 
-  return maxSum;
+  maxAverage = windowSum / k;
+
+  let left = 0;
+  let right = k;
+
+  while (right < nums.length) {
+    windowSum = windowSum - nums[left] + nums[right];
+
+    const average = windowSum / k;
+
+    maxAverage = Math.max(maxAverage, average);
+
+    left++;
+    right++;
+  }
+
+  return maxAverage;
 };
 
 // Test cases
+console.log(findMaxAverage([-1], 1)); // -1
+console.log(findMaxAverage([4, 0, 4, 3, 3], 5)); // 2.8
 console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4)); // 12.75
 console.log(findMaxAverage([5], 1)); // 5.0
 console.log(findMaxAverage([0, 1, 1, 3, 3], 4)); // 2.0
