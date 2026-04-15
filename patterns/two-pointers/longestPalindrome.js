@@ -27,7 +27,34 @@
  * @return {string}
  */
 const longestPalindrome = function (s) {
-  // Твій код тут
+  const isPalindrome = (str) => {
+    let left = 0;
+    let right = str.length - 1;
+    while (left < right) {
+      if (str[left] !== str[right]) return false;
+      left++;
+      right--;
+    }
+    return true;
+  };
+
+  let maxPalindrome = '';
+
+  for (let i = 0; i < s.length; i++) {
+    let currentSub = '';
+
+    for (let j = i; j < s.length; j++) {
+      currentSub += s[j];
+
+      if (currentSub.length > maxPalindrome.length) {
+        if (isPalindrome(currentSub)) {
+          maxPalindrome = currentSub;
+        }
+      }
+    }
+  }
+
+  return maxPalindrome;
 };
 
 // Test cases
