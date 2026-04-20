@@ -30,7 +30,21 @@
  * @return {boolean}
  */
 const canConstruct = function (ransomNote, magazine) {
-  // your solution here
+  const hashMap = new Map();
+
+  for (let i = 0; i < magazine.length; i++) {
+    hashMap.set(magazine[i], (hashMap.get(magazine[i]) || 0) + 1);
+  }
+
+  for (let i = 0; i < ransomNote.length; i++) {
+    if (!hashMap.get(ransomNote[i])) return false;
+
+    if (hashMap.has(ransomNote[i])) {
+      hashMap.set(ransomNote[i], hashMap.get(ransomNote[i]) - 1);
+    }
+  }
+
+  return true;
 };
 
 // Test cases
