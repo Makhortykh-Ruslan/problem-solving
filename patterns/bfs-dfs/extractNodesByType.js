@@ -40,6 +40,19 @@
  * @param {string} type
  * @return {any[]}
  */
+
+/**
+ * const stack = [root];
+ * while (stack.length) {
+ *   const node = stack.pop();
+ *   if (node.tagName.toLowerCase() === type.toLowerCase()) {
+ *     result.push(node);
+ *   }
+ *   for (const child of (node.children || [])) {
+ *     stack.push(child);
+ *   }
+ * }
+ * **/
 function extractNodesByType(root, type) {
   const result = [];
 
