@@ -32,7 +32,18 @@
  * @param {string} path
  * @return {any}
  */
-function getValueByPath(obj, path) {}
+function getValueByPath(obj, path) {
+  const array = path.split('.');
+
+  let node = obj;
+
+  for (const el of array) {
+    if (node === null || node === undefined) return undefined;
+    node = node[el];с
+  }
+
+  return node;
+}
 
 // Test cases
 console.log(getValueByPath({ a: { b: { c: 42 } } }, 'a.b.c')); // 42
@@ -40,3 +51,4 @@ console.log(getValueByPath({ a: { b: 1 } }, 'a.x.c')); // undefined
 console.log(getValueByPath({}, 'a.b')); // undefined
 console.log(getValueByPath({ a: null }, 'a.b')); // undefined
 console.log(getValueByPath({ a: 1 }, 'a')); // 1
+console.log(getValueByPath({ a: null }, 'a.b.c')); // undefined
