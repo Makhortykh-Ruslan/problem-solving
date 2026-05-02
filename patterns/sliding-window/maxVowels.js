@@ -31,9 +31,54 @@
  * @param {number} k
  * @return {number}
  */
-function maxVowels(s, k) {}
+function maxVowels(s, k) {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+
+  let left = 0;
+  let right = k;
+
+  let windowVowelCount = 0;
+  let maxVowelCount = 0;
+
+  for (let i = 0; i < k; i++) {
+    if (vowels.has(s[i])) {
+      windowVowelCount++;
+    }
+  }
+
+  maxVowelCount = windowVowelCount;
+
+  if (s.length === k) {
+    return windowVowelCount;
+  }
+
+  while (right <= s.length) {
+    const rightLetter = s[right];
+    const leftLetter = s[left];
+
+    let deepVowelCount = windowVowelCount;
+
+    if (vowels.has(leftLetter)) {
+      deepVowelCount--;
+    }
+
+    if (vowels.has(rightLetter)) {
+      deepVowelCount++;
+    }
+
+    windowVowelCount = deepVowelCount;
+    maxVowelCount = Math.max(maxVowelCount, windowVowelCount);
+
+    left++;
+    right++;
+  }
+
+  return maxVowelCount;
+}
 
 // Test cases
+console.log(maxVowels('ibpbhixfiouhdljnjfflpapptrxgcomvnb', 33)); // 7;
+console.log(maxVowels('a', 1)); // 1
 console.log(maxVowels('abciiidef', 3)); // 3
 console.log(maxVowels('aeiou', 2)); // 2
 console.log(maxVowels('leetcode', 3)); // 2
