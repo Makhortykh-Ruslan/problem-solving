@@ -34,7 +34,7 @@ const findRepeatedDnaSequences = function (s) {
   let left = 0;
   let right = 10;
 
-  while (left < s.length) {
+  while (left <= s.length) {
     const window = s.substring(left, right);
 
     if (hashMap.get(window) === 1) {
