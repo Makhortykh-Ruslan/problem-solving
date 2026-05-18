@@ -14,4 +14,4 @@ type RenameKeys<T, Prefix extends string> = {
   [K in keyof T as `${Prefix}${string & K}`]: T[K];
 };
 
-type Result = RenameKeys<{ name: string; age: number }, 'get'>;
+export type Result = RenameKeys<{ name: string; age: number }, 'get'>;
